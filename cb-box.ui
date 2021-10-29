@@ -26,7 +26,7 @@
      <widget class="QComboBox" name="cbBox"/>
     </item>
     <item>
-     <widget class="QLabel" name="etiqueta">
+     <widget class="QLabel" name="ticket">
       <property name="text">
        <string/>
       </property>

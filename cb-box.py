@@ -18,6 +18,8 @@ class MiVentana(QMainWindow):
         self.editar.clicked.connect(self.onUpdate)
         self.quitar.clicked.connect(self.onDelete)
         self.quitarTodos.clicked.connect(self.onDeleteAllItem)
+        self.cbBox.activated[str].connect(self.onShow)
+
 
     def onCreate(self):
         msg = QMessageBox()
@@ -25,8 +27,12 @@ class MiVentana(QMainWindow):
         if ok and nuevo_texto:
             self.cbBox.addItem(nuevo_texto)
             msg.setWindowTitle('Creado')
-            msg.setTextFormat("Item creado con exito")
+            #msg.setTextFormat("Item creado con exito")
             msg.setStandardButtons(QMessageBox.Yes)
+
+    def onShow(self):
+        newText = self.cbBox.currentText()
+        self.ticket.setText(newText)
 
     def onUpdate(self):
         nuevo_texto, ok = QInputDialog.getText(self, 'Editar', 'Ingrese nuevo nombre', text='Texto a editar')
